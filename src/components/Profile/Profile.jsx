@@ -1,4 +1,6 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
+
 
 import smile from '../../assets/img/icons/smile.svg';
 import camera from '../../assets/img/icons/camera.png';
@@ -10,6 +12,7 @@ import ProfileInfo from './ProfileInfo';
 import Posts from './Posts';
 
 const Profile = (props) => {
+
    function onPostChange(e) {
       let text = e.target.value;
       props.updateNewPostText(text);
@@ -18,6 +21,8 @@ const Profile = (props) => {
       e.preventDefault();
       props.addPost();
    }
+
+   if (!props.isAuth) return <Redirect to='/login' />
    return (
       <div className="profile">
          <ProfileInfo profile={props.profile} />

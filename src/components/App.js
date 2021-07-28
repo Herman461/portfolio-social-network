@@ -9,6 +9,7 @@ import Gallery from './pages/Gallery';
 import DialogsContainer from './Dialogs/DialogsContainer';
 import ProfileContainer from './Profile/ProfileContainer';
 import UsersContainer from './Users/UsersContainer';
+import Login from './pages/Login';
 
 const App = (props) => {
    return (
@@ -39,6 +40,7 @@ const App = (props) => {
                   <Route component={Friends} path="/friends" />
                   <Route component={Music} path="/music" />
                   <Route component={Gallery} path="/gallery" />
+                  <Route render={() => <Login />} path="/login" />
                </div>
             </div>
          </main>
