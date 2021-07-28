@@ -1,36 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import * as axios from 'axios';
+
 import Users from './Users';
 
-import { 
-	setUsers,
-	toggleFollow,
+import { getUsersThunkCreator, toggleFollowThunkCreator } from '../../redux/thunks';
+import {
 	filterUsers, 
 	updateUsersSearch,
-	setTotalUsersCount,
-	setSelectedPage,
-	toggleIsFetching,
-	toggleFollowingProgress } from '../../redux/actions';
+	setSelectedPage
+} from '../../redux/actions';
 
-// import { getUsers } from '../../api/api';
 
 class UsersComponent extends React.Component {
-	componentDidMount() {
-		this.props.toggleIsFetching();
-		axios.get('http://localhost:4000/api/users')
-		.then(response => {
-			this.props.toggleIsFetching();
-			this.props.setUsers(response.data.items);
-			this.props.setTotalUsersCount(response.data.totalCount)
-			
-		})		
-		// getUsers(this.props.pageSize).then(data => {
-		// 	this.props.toggleIsFetching();
-		// 	this.props.setUsers(data.items);
-		// 	this.props.setTotalUsersCount(data.totalCount)
-		// });
+	componentDidMount() {	
+		this.props.getUsersThunkCreator();
 	}
 
 	render() {
@@ -49,7 +33,6 @@ const mapStateToProps = (state) => ({
 });
 
 const UsersContainer = connect(mapStateToProps,
-{ setUsers, toggleFollow, filterUsers, updateUsersSearch, 
-setTotalUsersCount, toggleIsFetching, toggleFollowingProgress })(UsersComponent);
+{ filterUsers, updateUsersSearch, getUsersThunkCreator, toggleFollowThunkCreator })(UsersComponent);
 
 export default UsersContainer;

@@ -51,9 +51,8 @@ const Header = (props) => {
             <div className="header__data data-header">
                   {props.isAuth ? 
                      <>
-                        <div className="data-header__login">login: {props.data.login}</div>
-                        <div className="data-header__id">id: {props.data.id}</div>
-                        <div className="data-header__email">email: {props.data.email}</div>
+                        <div className="data-header__id">id: {props.user._id}</div>
+                        <div className="data-header__email">name: {props.user.name}</div>
                      </>
                      : <NavLink to="/login">Войти</NavLink>
                   }

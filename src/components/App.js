@@ -1,11 +1,9 @@
 import React from 'react';
 
 import HeaderContainer from './HeaderContainer';
-import Profile from './Profile/Profile';
 import { Route } from 'react-router-dom';
 import Friends from './pages/Friends';
 import Sidebar from './Sidebar';
-import Dialogs from './Dialogs/Dialogs';
 import Music from './pages/Music';
 import Gallery from './pages/Gallery';
 import DialogsContainer from './Dialogs/DialogsContainer';

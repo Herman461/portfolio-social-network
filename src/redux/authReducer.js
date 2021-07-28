@@ -1,10 +1,9 @@
 import { SET_USER_DATA } from './actions';
 
 const initialState = {
-	data: {
-		email: null,
-		id: null,
-		login: null,
+	user: {
+		_id: null,
+		name: null,
 	},
 	isAuth: false,
 }
@@ -13,10 +12,10 @@ export const authReducer = (state = initialState, action) => {
 		case SET_USER_DATA:
 			return {
 				...state,
-				data: { ...action.data },
+				user: { ...action.user },
 				isAuth: true
 			}
 		default:
-			return state
+			return state;
 	}
 }

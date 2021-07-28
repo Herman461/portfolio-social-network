@@ -4,15 +4,17 @@ import { connect } from 'react-redux';
 import * as axios from 'axios';
 import { withRouter } from 'react-router-dom';
 
-import { addPost, updateNewPostText, setUserProfile } from '../../redux/actions';
+import { addPost, updateNewPostText } from '../../redux/actions';
+import { getProfileThunkCreator } from '../../redux/thunks';
+
 import Profile from './Profile';
-import { getUserProfile } from '../../api/api';
 
 class ProfileContainer extends React.Component {
 
    componentDidMount() {
-      let userId = this.props.match.params.userId || 2;
-      getUserProfile(userId).then(data => this.props.setUserProfile(data))
+
+      let userId = this.props.match.params.userId || 1;
+      this.props.getProfileThunkCreator(userId)
    }
    render() {
       return <Profile {...this.props} />
@@ -31,4 +33,4 @@ const WithUrlDataContainerComponent = withRouter(ProfileContainer);
 
 
 
-export default connect(mapStateToProps, { addPost, updateNewPostText, setUserProfile })(WithUrlDataContainerComponent);
+export default connect(mapStateToProps, { addPost, updateNewPostText, getProfileThunkCreator })(WithUrlDataContainerComponent);

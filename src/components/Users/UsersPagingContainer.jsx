@@ -3,17 +3,16 @@ import * as axios from "axios";
 import UsersPaging from './UsersPaging';
 import { connect } from 'react-redux';
 import { setSelectedPage, setUsers, toggleIsFetching } from '../../redux/actions';
-import { getPages } from '../../api/api';
 
 class UsersPagingContainer extends React.Component {
 	onPageClick = (e, page) => {
-		e.preventDefault();
-		this.props.toggleIsFetching();
-		getPages(this.props.pageSize, page).then(data => {
-			this.props.toggleIsFetching();
-			this.props.setUsers(data.items);
-		})
-		this.props.setSelectedPage(page);
+		// e.preventDefault();
+		// this.props.toggleIsFetching();
+		// getPages(this.props.pageSize, page).then(data => {
+		// 	this.props.toggleIsFetching();
+		// 	this.props.setUsers(data.items);
+		// })
+		// this.props.setSelectedPage(page);
 	}
 
 	render() {

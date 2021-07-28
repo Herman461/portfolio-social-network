@@ -70,9 +70,9 @@ export const setUserProfile = (profile) => ({
 	profile
 });
 
-export const setAuthUserData = (data) => ({
+export const setAuthUserData = (user) => ({
 	type: SET_USER_DATA,
-	data
+	user
 });
 
 export const toggleFollowingProgress = (isFetching, userId) => ({
